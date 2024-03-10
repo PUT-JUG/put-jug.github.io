@@ -26,15 +26,17 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pandoc
         run: sudo apt update && sudo apt install -y pandoc git
       - name: Install gitpython
-        run: pip install gitpython click
+        run: pip install gitpython
       - name: Clone Pages
-        run: python run_over_repositories.py --secrtet ${{ secrets.GITHUB_TOKEN }}
+        run: python run_over_repositories.py
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
