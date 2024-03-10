@@ -61,3 +61,6 @@ def main(secrtet):
 
   with open(f'./_site/index.html', 'w') as file:
     file.write(txt)
+
+
+main()
