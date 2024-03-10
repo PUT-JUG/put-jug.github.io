@@ -1,15 +1,15 @@
-Wprowadzenie do przetwarzania obrazów;https://github.com/PUT-JUG/lab-wdpo.git
-Robotics II;https://github.com/PUT-JUG/lab-roboticsII.git
-Systemy wbudowane i przetwarzanie brzegowe;https://github.com/PUT-JUG/lab-swpb.git
-Eksploracyjna analiza danych;https://github.com/PUT-JUG/lab-ead.git
-Interfejsy człowiek maszyna i sygnały biologiczne w robotyce;https://github.com/PUT-JUG/lab-icmwr.git
-Information engineering;https://github.com/PUT-JUG/lab-ie-1.git
-Information engineering II;https://github.com/PUT-JUG/lab-ie-2.git
-Modelowanie i sterowanie robotów;https://github.com/PUT-JUG/lab-misr.git
-Narzędzia i oprogramowanie dla systemów robotycznych;https://github.com/PUT-JUG/lab-niodsr.git
-Programowanie strukturalne i obiektowe;https://github.com/PUT-JUG/lab-psio.git
-Systemy czasu rzeczywistego;https://github.com/PUT-JUG/lab-rtos.git
-Tools and software for robotic systems;https://github.com/PUT-JUG/lab-tasfrs.git
-The elements of computer science techniques (project);https://github.com/PUT-JUG/lab-eocst.git
-Machine Perception;https://github.com/PUT-JUG/lab-mp.git
-Autonomiczne roboty mobilne;https://github.com/PUT-JUG/lab-arm.git
+https://github.com/PUT-JUG/lab-wdpo.git
+https://github.com/PUT-JUG/lab-roboticsII.git
+https://github.com/PUT-JUG/lab-swpb.git
+https://github.com/PUT-JUG/lab-ead.git
+https://github.com/PUT-JUG/lab-icmwr.git
+https://github.com/PUT-JUG/lab-ie-1.git
+https://github.com/PUT-JUG/lab-ie-2.git
+https://github.com/PUT-JUG/lab-misr.git
+https://github.com/PUT-JUG/lab-niodsr.git
+https://github.com/PUT-JUG/lab-psio.git
+https://github.com/PUT-JUG/lab-rtos.git
+https://github.com/PUT-JUG/lab-tasfrs.git
+https://github.com/PUT-JUG/lab-arm.git
+https://github.com/PUT-JUG/proj-eocst.git
+https://github.com/PUT-JUG/proj-mp.git
