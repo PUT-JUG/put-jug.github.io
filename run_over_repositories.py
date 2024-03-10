@@ -47,7 +47,7 @@ for beauty_name, repo in repositories:
 
 print('Create index.html for the root...')
 txt = '<html><body>'
-for repo in sorted(repositories):
+for beauty_name, repo in sorted(repositories):
   if len(repo) == 0:
     continue
   repo_name = repo.split('/')[-1].split('.')[0]
