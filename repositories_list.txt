@@ -1,1 +1,2 @@
 https://github.com/PUT-JUG/lab-wdpo.git
+https://github.com/PUT-JUG/lab-roboticsII.git
