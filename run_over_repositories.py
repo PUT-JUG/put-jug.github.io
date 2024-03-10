@@ -35,14 +35,14 @@ for repo in repositories:
   
   print(f'Create index.html for {repo_name}...')
   files_to_index = glob(f'./repositories/{repo_name}/public/*.html', recursive=True) + glob(f'./repositories/{repo_name}/public/*.md', recursive=True)
-  files_to_index = [f for f in files_to_index if '_pandoc' not in f and f not in ['_footer.html', '_header.html', '_head.html']]
+  files_to_index = [f for f in files_to_index if '_pandoc' not in f and '_footer' not in f and '_header' not in f and '_head' not in f]
   files_to_index = sorted(files_to_index)
   
   ########### Build index for the repository 
   txt = '<html><body>'
   for file in files_to_index:
     file = file.split('/')[-1]
-    txt += f'<a href="{file}">{Path(file).name}</a><br>'
+    txt += f'<a href="{file}">{file}</a><br>'
   txt += '</body></html>'
   ###########
   
