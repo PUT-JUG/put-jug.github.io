@@ -8,8 +8,7 @@ import os
 access_token = os.environ.get('ACCESS_TOKEN')
 
 with open('repositories_list.txt', 'r') as file:
-    repositories = file.readlines()
-    repositories = [repo.strip() for repo in repositories]
+    repositories = file.read().split('\n')
     repositories = [repo.split(';') for repo in repositories if len(repo) > 0]
 
 Path('./repositories').mkdir(parents=True, exist_ok=True)
