@@ -10,23 +10,22 @@ access_token = os.environ.get('ACCESS_TOKEN')
 with open('repositories_list.txt', 'r') as file:
     repositories = file.readlines()
     repositories = [repo.strip() for repo in repositories]
+    repositories = [repo.split(';') for repo in repositories if len(repo) > 0]
 
 Path('./repositories').mkdir(parents=True, exist_ok=True)
 Path('./_site').mkdir(parents=True, exist_ok=True)
 
-for repo in repositories:
-  if len(repo) == 0:
-    continue
+for beauty_name, repo in repositories:
   
   repo_name = repo.split('/')[-1].split('.')[0]
   
-  print(f'Cloning {repo_name}...')
+  print(f'Cloning {beauty_name} from {repo}...')
   
   repo_request = f'https://bartoszptak:{access_token}@' + repo.split('https://')[1]
   
   Repo.clone_from(repo_request, f'./repositories/{repo_name}')
   
-  print(f'Buiding {repo_name}...')
+  print(f'Buiding {beauty_name}...')
   subprocess.run([f'python3', f'./repositories/{repo_name}/compile.py', f'--working-directory', f'./repositories/{repo_name}'])
   
   print(f'Create index.html for {repo_name}...')
@@ -49,11 +48,12 @@ for repo in repositories:
 
 print('Create index.html for the root...')
 txt = '<html><body>'
-for repo in repositories:
+for repo in sorted(repositories):
   if len(repo) == 0:
     continue
   repo_name = repo.split('/')[-1].split('.')[0]
-  txt += f'<a href="{repo_name}/index.html">{repo_name}</a><br>'
+  print(f'Adding {repo_name} to index.html...')
+  txt += f'<a href="{repo_name}/index.html">{beauty_name}</a><br>'
   
 txt += '</body></html>'
 

@@ -1,2 +1,3 @@
-https://github.com/PUT-JUG/lab-wdpo.git
-https://github.com/PUT-JUG/lab-roboticsII.git
+Wprowadzenie do przetwarzania obrazów;https://github.com/PUT-JUG/lab-wdpo.git
+Robotics II;https://github.com/PUT-JUG/lab-roboticsII.git
+Systemy wbudowane i przetwarzanie brzegowe;https://github.com/PUT-JUG/lab-swpb.git
