@@ -34,8 +34,8 @@ for repo in repositories:
   subprocess.run([f'python3', f'./repositories/{repo_name}/compile.py', f'--working-directory', f'./repositories/{repo_name}'])
   
   print(f'Create index.html for {repo_name}...')
-  files_to_index = glob(f'./repositories/{repo_name}/public/*.html', recursive=True)
-  files_to_index = [f for f in files_to_index if '_pandoc' not in f]
+  files_to_index = glob(f'./repositories/{repo_name}/public/*.html', recursive=True) + glob(f'./repositories/{repo_name}/public/*.md', recursive=True)
+  files_to_index = [f for f in files_to_index if '_pandoc' not in f or f in ['_footer.html', '_header.html', '_head.html']]
   files_to_index = sorted(files_to_index)
   
   ########### Build index for the repository 
