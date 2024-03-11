@@ -57,7 +57,7 @@ def _compile_directory(directory: Path, repo: Repo, base_output_dir: Path, outpu
     template = jinja_env.get_template('browse.html')
     rendered_html = template.render(
         can_go_up=True,
-        entries=entries
+        entries=sorted(entries, key=lambda entry: entry['name'])
     )
     with open(output_dir / 'index.html', 'w') as output_file:
         output_file.write(rendered_html)
