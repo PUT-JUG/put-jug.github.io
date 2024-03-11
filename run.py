@@ -50,9 +50,12 @@ def main():
         display_name = f'{lang} {name}'
 
         print(f'Building {repo_name}...')
-        entries.append(
-            compile_repo(display_name, name, repo, site_path / repo_name, jinja_env, resources_path / 'pandoc')
-        )
+        try:
+            entries.append(
+                compile_repo(display_name, name, repo, site_path / repo_name, jinja_env, resources_path / 'pandoc')
+            )
+        except Exception as e:
+            print(f'Error compiling {repo_name}: {e}')
 
     # Build index for the root
     template = jinja_env.get_template('browse.html')

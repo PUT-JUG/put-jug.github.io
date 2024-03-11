@@ -11,16 +11,16 @@ def compile_repo(display_name: str, name: str, repo: Repo, output_dir: Path, jin
                  resources_path: Path) -> dict[str, Any]:
     src_dir = Path(repo.working_dir) / 'src'
     output_dir = output_dir
-
     if output_dir.exists():
         shutil.rmtree(output_dir)
+        output_dir.mkdir()
 
-    output_dir.mkdir()
+    shutil.copytree(resources_path, output_dir, dirs_exist_ok=True)
 
     for entry in src_dir.iterdir():
         if entry.name.startswith('_') or entry.name.startswith('.'):
             if entry.is_dir():
-                shutil.copytree(entry, output_dir / entry.name)
+                shutil.copytree(entry, output_dir / entry.name, dirs_exist_ok=True)
             else:
                 shutil.copyfile(entry, output_dir / entry.name)
 
@@ -28,8 +28,6 @@ def compile_repo(display_name: str, name: str, repo: Repo, output_dir: Path, jin
     entry['name'] = display_name
     entry['sorting_name'] = name
     entry['url'] = output_dir.name
-
-    shutil.copytree(resources_path, output_dir, dirs_exist_ok=True)
 
     return entry
 
