@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Institute of Robotics and Machine Intelligence JUG e-learning hosting</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+    <img class="logo" src="/img/messbecher.svg" alt="logo">
+    <div>
+        <h2>Poznan University of Technology</h2>
+        <h3>Institute of Robotics and Machine Intelligence e-learning hosting</h3>
+    </div>
+</header>
+<main>
+    <table id="indexlist">
+        <tr class="indexhead">
+            <th class="indexcolicon"></th>
+            <th class="indexcolname">Name</th>
+            <th class="indexcollastmod">Last modified</th>
+        </tr>
+
+        {% if can_go_up %}
+            <tr>
+                <td class="indexcolicon">
+                    <a href=".."><img src="/img/folder-home.svg" alt="[   ]"/></a>
+                </td>
+                <td class="indexcolname">
+                    <a href="..">Parent directory</a>
+                </td>
+                <td class="indexcollastmod">
+                </td>
+            </tr>
+        {% endif %}
+
+        {% for entry in entries %}
+            <tr class="{{ loop.cycle('odd', 'even') }}">
+                {% if entry['is_dir'] %}
+                    <td class="indexcolicon">
+                        <a href="{{ entry['url'] }}"><img src="/img/folder.svg" alt="[   ]"/></a>
+                    </td>
+                {% else %}
+                    <td class="indexcolicon">
+                        <a href="{{ entry['url'] }}"><img src="/img/doc.svg" alt="[   ]"/></a>
+                    </td>
+                {% endif %}
+                <td class="indexcolname">
+                    <a href="{{ entry['url'] }}">{{ entry['name'] }}</a>
+                </td>
+                <td class="indexcollastmod">
+                    <a href="{{ entry['url'] }}">{{ entry['modification_time'].strftime('%Y-%m-%d %H:%M') }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</main>
+
+<footer>
+</footer>
+
+<script>
+    (function () {
+        const parent = document.querySelector('tr:not(.indexhead)');
+        parent.classList.add('parent');
+
+        // Make all the icon links unfocusable with tab
+        const icolinks = document.querySelectorAll('.indexcolicon a');
+        [].forEach.call(icolinks, function (link) {
+            link.setAttribute('tabindex', '-1');
+        });
+    })();
+</script>
+</body>
+</html>

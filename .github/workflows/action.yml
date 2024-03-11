@@ -33,10 +33,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pandoc
         run: sudo apt update && sudo apt install -y pandoc git
-      - name: Install gitpython
-        run: pip install gitpython
+      - name: Install Python requirements
+        run: pip install gitpython jinja2
       - name: Clone Pages
-        run: python run_over_repositories.py
+        run: python run.py
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
