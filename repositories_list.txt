@@ -1,5 +1,5 @@
 https://github.com/PUT-JUG/lab-swpb.git
-https://github.com/PUT-JUG/lab-roboticsII
+https://github.com/PUT-JUG/lab-roboticsII.git
 https://github.com/PUT-JUG/lab-wdpo.git
 https://github.com/PUT-JUG/lab-ead.git
 https://github.com/PUT-JUG/lab-icmwr.git
