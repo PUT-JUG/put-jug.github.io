@@ -13,3 +13,4 @@ https://github.com/PUT-JUG/lab-tasfrs.git
 https://github.com/PUT-JUG/lab-arm.git
 https://github.com/PUT-JUG/proj-eocst.git
 https://github.com/PUT-JUG/proj-mp.git
+https://github.com/PUT-JUG/lab-ppd.git
