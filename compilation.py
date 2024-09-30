@@ -73,7 +73,7 @@ def _compile_file(document_path: Path, repo: Repo, base_output_dir: Path, output
 
     title = document_path.name.replace('.md', '')
     output_file_name = f'{title}.html'
-    subprocess.run(['pandoc', str(document_path), '--from=gfm',
+    subprocess.run(['pandoc', str(document_path), '--from=gfm+table_captions',
                     '--to=html', '--standalone', '--mathjax',
                     f'--metadata=title:{title}',
                     f'--resource-path={base_output_dir}',
