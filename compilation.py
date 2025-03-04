@@ -73,17 +73,20 @@ def _compile_file(document_path: Path, repo: Repo, base_output_dir: Path, output
 
     title = document_path.name.replace('.md', '')
     output_file_name = f'{title}.html'
-    subprocess.run(['pandoc', str(document_path), '--from=markdown+emoji+table_captions',
-                    '--to=html', '--standalone', '--mathjax',
-                    f'--metadata=title:{title}',
-                    f'--resource-path={base_output_dir}',
-                    f'--include-in-header=_pandoc_head.html',
-                    f'--include-before-body=_pandoc_header.html',
-                    f'--include-after-body=_pandoc_footer.html',
-                    '--css=_static/github-markdown-light.css',
-                    '--css=_static/custom.css',
-                    f'--output={output_dir / output_file_name}']
-                   )
+    try:
+        subprocess.run(['pandoc', str(document_path),
+                        '--from=markdown+emoji+table_captions-yaml_metadata_block',
+                        '--to=html', '--standalone', '--mathjax',
+                        f'--metadata=title:{title}',
+                        f'--resource-path={base_output_dir}',
+                        f'--include-in-header=_pandoc_head.html',
+                        f'--include-before-body=_pandoc_header.html',
+                        f'--include-after-body=_pandoc_footer.html',
+                        '--css=_static/github-markdown-light.css',
+                        '--css=_static/custom.css',
+                        f'--output={output_dir / output_file_name}'], check=True)
+    except subprocess.CalledProcessError:
+        print(f'Error compiling {document_path}')
 
     commit = next(repo.iter_commits(paths=str(document_path)))
     return {
