@@ -19,3 +19,4 @@ https://github.com/PUT-JUG/lab-miapr.git
 https://github.com/PUT-JUG/lab-zpo.git
 https://github.com/PUT-JUG/lab-nswr.git
 https://github.com/PUT-JUG/lab-piao.git
+https://github.com/PUT-JUG/lab-intro-to-robotics
